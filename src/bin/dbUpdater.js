@@ -86,7 +86,7 @@ const saveData = async (data) => {
     .then(async () => {
       const db = client.db("planPreviewer");
       const traffic = db.collection("traffic");
-      await traffic.deleteMany({}) && await traffic.insertMany(data);
+      (await traffic.deleteMany({})) && (await traffic.insertMany(data));
     })
     .catch((err) => console.log(err))
     .finally(() => client.close());
