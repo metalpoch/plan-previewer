@@ -6,7 +6,7 @@ async function findAll() {
   try {
     const db = client.db("planPreviewer");
     const col = db.collection("traffic_aba");
-    return await col.find().sort({state: 1}).toArray();
+    return await col.find().sort({ state: 1 }).toArray();
   } finally {
     await client.close();
   }
@@ -54,7 +54,7 @@ export const getData = async (plan) => {
       const pln = otherPlans[i];
       const data = upgradePlan(pln, original_doc);
       if (data) {
-	result = data;
+        result = data;
         break;
       }
     }
