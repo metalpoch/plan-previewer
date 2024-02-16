@@ -7,7 +7,7 @@ async function findAll(state) {
   try {
     const db = client.db("planPreviewer");
     const col = db.collection("traffic_aba");
-    return await col.find({ state }).sort({ state: 1 }).toArray();
+    return await col.find({ state }).sort({ central: 1 }).toArray();
   } finally {
     await client.close();
   }

@@ -15,13 +15,13 @@ const data = planBase ? await getData(planBase, state) : [];
 <Layout title="Plan Previewer">
   <main class="flex flex-col gap-5 py-5">
     <section class="flex justify-between">
-      <form class="flex ms-auto">
+      <form class="flex gap-1 ms-auto">
         <select
           name="state"
           id="state"
-          class="p-1 me-1 bg-white text-slate-700 font-semibold"
+          class="p-1 bg-white text-slate-700 font-semibold"
         >
-          <option selected disabled>State</option>
+          <option selected disabled>Estado</option>
 
           {
             CONSTANTS.STATES.map((state) => (
@@ -37,7 +37,7 @@ const data = planBase ? await getData(planBase, state) : [];
           class="p-1 w-32 bg-white text-slate-700 font-semibold"
           required
         >
-          <option selected disabled>Plans</option>
+          <option selected disabled>Plan</option>
 
           {
             CONSTANTS.PLANS.map((item) => (
@@ -47,7 +47,8 @@ const data = planBase ? await getData(planBase, state) : [];
         </select>
         <button
           id="button"
-          class="bg-[#E85D04] rounded-sm px-2 py-1 font-semibold">Plan</button
+          class="bg-[#E85D04] rounded-sm px-2 py-1 font-semibold hover:brightness-110 duration-100"
+          >Generar</button
         >
       </form>
     </section>
