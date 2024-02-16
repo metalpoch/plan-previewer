@@ -8,7 +8,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "deploy": "HOST=0.0.0.0 PORT=4321 node ./dist/server/entry.mjs"
+    "deploy": "SERVER_KEY_PATH=cert.key SERVER_CERT_PATH=cert.crt HOST=0.0.0.0 PORT=4321 node ./dist/server/entry.mjs"
   },
   "dependencies": {
     "@astrojs/node": "^8.2.0",
