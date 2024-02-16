@@ -1,11 +1,11 @@
 import { useRef } from "react";
 import { useDownloadExcel } from "react-export-table-to-excel";
 
-export default function Table({ planBase, data }) {
+export default function Table({ planBase, state, data }) {
   const tableRef = useRef(null);
   const { onDownload } = useDownloadExcel({
     currentTableRef: tableRef.current,
-    filename: `Cambio de planes ${planBase} Mbps`,
+    filename: `Cambio de planes ${state} ${planBase} Mbps`,
     sheet: `Plan base ${planBase} Mbps`,
   });
 

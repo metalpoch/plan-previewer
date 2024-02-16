@@ -1,3 +1,30 @@
+const STATES = [
+  "Amazonas",
+  "Anzoátegui",
+  "Apure",
+  "Aragua",
+  "Barinas",
+  "Bolívar",
+  "Carabobo",
+  "Cojedes",
+  "Delta-Amacuro",
+  "Distrito-Capital",
+  "Falcón",
+  "Guárico",
+  "La-Guaira",
+  "Lara",
+  "Miranda",
+  "Monagas",
+  "Mérida",
+  "Nueva-Esparta",
+  "Portuguesa",
+  "Sucre",
+  "Trujillo",
+  "Táchira",
+  "Yaracuy",
+  "Zulia",
+];
+
 const PLANS = [
   0.25, 0.5, 0.75, 1, 1.5, 2, 3, 4, 6, 8, 10, 14, 18, 20, 22, 30, 50,
 ];
@@ -43,6 +70,7 @@ const FACTORS_PLAN = [
 ];
 
 export default {
+  STATES,
   PLANS,
   CLIENTS_PLAN,
   FACTORS_PLAN,

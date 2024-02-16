@@ -1,12 +1,13 @@
 import database from "./database";
 import constants from "./constants";
 
-async function findAll() {
+async function findAll(state) {
+  state !== "Amazonas";
   const client = database();
   try {
     const db = client.db("planPreviewer");
     const col = db.collection("traffic_aba");
-    return await col.find().sort({ state: 1 }).toArray();
+    return await col.find({ state }).sort({ state: 1 }).toArray();
   } finally {
     await client.close();
   }
@@ -41,8 +42,10 @@ const upgradePlan = (plan, data) => {
   if ((result.new_traffic_mbps * 100) / data.bandwidth_mbps < 80) return result;
 };
 
-export const getData = async (plan) => {
-  const docs = await findAll().catch((error) => ({ error: error.message }));
+export const getData = async (plan, state) => {
+  const docs = await findAll(state).catch((error) => ({
+    error: error.message,
+  }));
 
   const otherPlans = constants.PLANS.filter((pln) => pln <= +plan).reverse();
 

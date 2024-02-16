@@ -6,21 +6,38 @@ import { getData } from "../libs/querys";
 import CONSTANTS from "../libs/constants";
 
 const searchParams = Astro.url.searchParams;
+const state = searchParams.get("state");
 const planBase = searchParams.get("plan");
 
-const data = planBase ? await getData(planBase) : [];
+const data = planBase ? await getData(planBase, state) : [];
 ---
 
 <Layout title="Plan Previewer">
   <main class="flex flex-col gap-5 py-5">
     <section class="flex justify-between">
-      <form class="flex w-44 ms-auto">
+      <form class="flex ms-auto">
+        <select
+          name="state"
+          id="state"
+          class="p-1 me-1 bg-white text-slate-700 font-semibold"
+        >
+          <option selected disabled>State</option>
+
+          {
+            CONSTANTS.STATES.map((state) => (
+              <option value={state}>{state.replace("-", " ")}</option>
+            ))
+          }
+          required
+        </select>
+
         <select
           name="plan"
           id="plan"
           class="p-1 w-32 bg-white text-slate-700 font-semibold"
+          required
         >
-          <option selected disabled>Select Plan</option>
+          <option selected disabled>Plans</option>
 
           {
             CONSTANTS.PLANS.map((item) => (
@@ -35,18 +52,22 @@ const data = planBase ? await getData(planBase) : [];
       </form>
     </section>
     <Loader />
-    {
-      data.length > 0 && (
-        <Table client:visible planBase={planBase} data={data} />
-      )
-    }
+    <section id="table">
+      {
+        data.length > 0 && (
+          <Table client:visible planBase={planBase} state={state} data={data} />
+        )
+      }
+    </section>
   </main>
 </Layout>
 
 <script>
   const loader = document.getElementById("loader");
+  const table = document.getElementById("table");
   const btn = document.getElementById("button");
   btn.addEventListener("click", () => {
     loader.style.display = "block";
+    table.style.display = "none";
   });
 </script>
