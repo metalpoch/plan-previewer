@@ -13,8 +13,11 @@ export default function Table({ planBase, state, data }) {
     const header = [
       "Estado",
       "IP",
+      "Modelo",
       "Central",
       "Clientes",
+      "Clientes Cortados",
+      "Clientes Suspendidos",
       "Switch",
       "Tráfico Teórico (Mbps)",
       "Tráfico Medido (Mbps)",
@@ -29,8 +32,11 @@ export default function Table({ planBase, state, data }) {
     const body = data.map(([base, upgrated]) => [
       base.state.replace("-", " "),
       base.ip,
+      base.model,
       base.central,
       base.clients,
+      base.clients_cut_off,
+      base.clients_suspended,
       base.element,
       base.theoretical_traffic_mbps,
       Math.max(base.in_avg_mbps, base.out_avg_mbps).toFixed(2),
@@ -76,7 +82,7 @@ export default function Table({ planBase, state, data }) {
         <table ref={tableRef} className="table-fixed text-slate-700 text-sm">
           <thead className="bg-slate-500 text-white">
             <tr>
-              <th colSpan="5">Data Nodo</th>
+              <th colSpan="8">Data Nodo</th>
               <th hidden colSpan="17">
                 Clientes Por Plan
               </th>
@@ -96,8 +102,11 @@ export default function Table({ planBase, state, data }) {
               {/* Data Nodo */}
               <th className="px-2 font-normal">Estado</th>
               <th className="px-2 font-normal">IP</th>
+              <th className="px-2 font-normal">Modelo</th>
               <th className="px-2 font-normal">Central</th>
               <th className="px-2 font-normal">Clientes</th>
+              <th className="px-2 font-normal">Clientes Cortados</th>
+              <th className="px-2 font-normal">Clientes Suspendidos</th>
               <th className="px-2 font-normal">Switch</th>
 
               {/* Clientes Por Plan */}
@@ -199,8 +208,11 @@ export default function Table({ planBase, state, data }) {
                 >
                   <td>{base.state.replace("-", " ")}</td>
                   <td>{base.ip}</td>
+                  <td>{base.model}</td>
                   <td>{base.central}</td>
                   <td>{base.clients}</td>
+                  <td>{base.clients_cut_off}</td>
+                  <td>{base.clients_suspended}</td>
                   <td>{base.element}</td>
 
                   <td hidden>{base["clients_0.25_mbps"]}</td>
