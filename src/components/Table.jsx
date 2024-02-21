@@ -78,9 +78,9 @@ export default function Table({ planBase, state, data }) {
           Descargar Resumen
         </button>
       </div>
-      <article className="overflow-y-auto h-96">
+      <article className="overflow-y-auto h-[calc(100vh-200px)]">
         <table ref={tableRef} className="table-fixed text-slate-700 text-sm">
-          <thead className="bg-slate-500 text-white">
+          <thead className="bg-slate-500 text-white sticky top-0 z-10">
             <tr>
               <th colSpan="8">Data Nodo</th>
               <th hidden colSpan="17">
