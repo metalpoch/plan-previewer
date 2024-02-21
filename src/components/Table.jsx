@@ -15,7 +15,7 @@ export default function Table({ planBase, state, data }) {
       "IP",
       "Modelo",
       "Central",
-      "Clientes",
+      "Clientes Activos",
       "Clientes Cortados",
       "Clientes Suspendidos",
       "Switch",
@@ -34,7 +34,7 @@ export default function Table({ planBase, state, data }) {
       base.ip,
       base.model,
       base.central,
-      base.clients,
+      base.clients_active,
       base.clients_cut_off,
       base.clients_suspended,
       base.element,
@@ -104,7 +104,7 @@ export default function Table({ planBase, state, data }) {
               <th className="px-2 font-normal">IP</th>
               <th className="px-2 font-normal">Modelo</th>
               <th className="px-2 font-normal">Central</th>
-              <th className="px-2 font-normal">Clientes</th>
+              <th className="px-2 font-normal">Clientes Activos</th>
               <th className="px-2 font-normal">Clientes Cortados</th>
               <th className="px-2 font-normal">Clientes Suspendidos</th>
               <th className="px-2 font-normal">Switch</th>
@@ -210,7 +210,7 @@ export default function Table({ planBase, state, data }) {
                   <td>{base.ip}</td>
                   <td>{base.model}</td>
                   <td>{base.central}</td>
-                  <td>{base.clients}</td>
+                  <td>{base.clients_active}</td>
                   <td>{base.clients_cut_off}</td>
                   <td>{base.clients_suspended}</td>
                   <td>{base.element}</td>
