@@ -19,6 +19,7 @@ export default function Table({ planBase, state, data }) {
       "Clientes Activos",
       "Clientes Cortados",
       "Clientes Suspendidos",
+      "Puertos Con Contrato",
       "Switch",
       "Tráfico Teórico (Mbps)",
       "Tráfico Medido (Mbps)",
@@ -39,6 +40,7 @@ export default function Table({ planBase, state, data }) {
       base.clients_active,
       base.clients_cut_off,
       base.clients_suspended,
+      base.port_with_contract,
       base.element,
       base.theoretical_traffic_mbps,
       Math.max(base.in_avg_mbps, base.out_avg_mbps).toFixed(2),
@@ -84,7 +86,7 @@ export default function Table({ planBase, state, data }) {
         <table ref={tableRef} className="table-fixed text-slate-700 text-sm">
           <thead className="bg-slate-500 text-white sticky top-0 z-10">
             <tr>
-              <th colSpan="8">Data Nodo</th>
+              <th colSpan="10">Data Nodo</th>
               <th hidden colSpan="17">
                 Clientes Por Plan
               </th>
@@ -104,11 +106,13 @@ export default function Table({ planBase, state, data }) {
               {/* Data Nodo */}
               <th className="px-2 font-normal">Estado</th>
               <th className="px-2 font-normal">IP</th>
+              <th hidden className="px-2 font-normal">Agregador</th>
               <th className="px-2 font-normal">Modelo</th>
               <th className="px-2 font-normal">Central</th>
               <th className="px-2 font-normal">Clientes Activos</th>
               <th className="px-2 font-normal">Clientes Cortados</th>
               <th className="px-2 font-normal">Clientes Suspendidos</th>
+              <th hidden className="px-2 font-normal">Puertos con contrato</th>
               <th className="px-2 font-normal">Switch</th>
 
               {/* Clientes Por Plan */}
@@ -210,11 +214,13 @@ export default function Table({ planBase, state, data }) {
                 >
                   <td>{base.state.replace("-", " ")}</td>
                   <td>{base.ip}</td>
+                  <td hidden>{base.bras}</td>
                   <td>{base.model}</td>
                   <td>{base.central}</td>
                   <td>{base.clients_active}</td>
                   <td>{base.clients_cut_off}</td>
-                  <td>{base.clients_suspended}</td>
+		  <td>{base.clients_suspended}</td>
+		  <td hidden>{base.port_with_contract}</td>
                   <td>{base.element}</td>
 
                   <td hidden>{base["clients_0.25_mbps"]}</td>
