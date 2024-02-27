@@ -106,13 +106,17 @@ export default function Table({ planBase, state, data }) {
               {/* Data Nodo */}
               <th className="px-2 font-normal">Estado</th>
               <th className="px-2 font-normal">IP</th>
-              <th hidden className="px-2 font-normal">Agregador</th>
+              <th hidden className="px-2 font-normal">
+                Agregador
+              </th>
               <th className="px-2 font-normal">Modelo</th>
               <th className="px-2 font-normal">Central</th>
               <th className="px-2 font-normal">Clientes Activos</th>
               <th className="px-2 font-normal">Clientes Cortados</th>
               <th className="px-2 font-normal">Clientes Suspendidos</th>
-              <th hidden className="px-2 font-normal">Puertos con contrato</th>
+              <th hidden className="px-2 font-normal">
+                Puertos con contrato
+              </th>
               <th className="px-2 font-normal">Switch</th>
 
               {/* Clientes Por Plan */}
@@ -219,8 +223,8 @@ export default function Table({ planBase, state, data }) {
                   <td>{base.central}</td>
                   <td>{base.clients_active}</td>
                   <td>{base.clients_cut_off}</td>
-		  <td>{base.clients_suspended}</td>
-		  <td hidden>{base.port_with_contract}</td>
+                  <td>{base.clients_suspended}</td>
+                  <td hidden>{base.port_with_contract}</td>
                   <td>{base.element}</td>
 
                   <td hidden>{base["clients_0.25_mbps"]}</td>
