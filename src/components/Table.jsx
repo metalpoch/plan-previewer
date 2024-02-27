@@ -13,6 +13,7 @@ export default function Table({ planBase, state, data }) {
     const header = [
       "Estado",
       "IP",
+      "Agregador",
       "Modelo",
       "Central",
       "Clientes Activos",
@@ -32,6 +33,7 @@ export default function Table({ planBase, state, data }) {
     const body = data.map(([base, upgrated]) => [
       base.state.replace("-", " "),
       base.ip,
+      base.bras,
       base.model,
       base.central,
       base.clients_active,
